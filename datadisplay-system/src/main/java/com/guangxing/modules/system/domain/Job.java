@@ -1,0 +1,102 @@
+/*
+ *  Copyright 2019-2020 Guangxing
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+package com.guangxing.modules.system.domain;
+
+import io.swagger.annotations.ApiModelProperty;
+import com.guangxing.base.BaseEntity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+/**
+* @author Guangxing
+* @date 2019-03-29
+*/
+@Entity
+@Table(name="sys_job")
+public class Job extends BaseEntity implements Serializable {
+
+    @Id
+    @Column(name = "job_id")
+    @NotNull(groups = Update.class)
+    @ApiModelProperty(value = "ID", hidden = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @ApiModelProperty(value = "岗位名称")
+    private String name;
+
+    @NotNull
+    @ApiModelProperty(value = "岗位排序")
+    private Long jobSort;
+
+    @NotNull
+    @ApiModelProperty(value = "是否启用")
+    private Boolean enabled;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Job job = (Job) o;
+        return Objects.equals(id, job.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public @NotNull(groups = Update.class) Long getId() {
+        return this.id;
+    }
+
+    public @NotBlank String getName() {
+        return this.name;
+    }
+
+    public @NotNull Long getJobSort() {
+        return this.jobSort;
+    }
+
+    public @NotNull Boolean getEnabled() {
+        return this.enabled;
+    }
+
+    public void setId(@NotNull(groups = Update.class) Long id) {
+        this.id = id;
+    }
+
+    public void setName(@NotBlank String name) {
+        this.name = name;
+    }
+
+    public void setJobSort(@NotNull Long jobSort) {
+        this.jobSort = jobSort;
+    }
+
+    public void setEnabled(@NotNull Boolean enabled) {
+        this.enabled = enabled;
+    }
+}
