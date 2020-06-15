@@ -15,10 +15,11 @@
         <module>datadisplay-system</module>
         <module>datadisplay-tools</module>
         <module>datadisplay-generator</module>
+        <module>datadisplay-screen</module>
     </modules>
 
     <name>Data-Display后台管理系统</name>
-    <url>http://auauz.net</url>
+    <url>http://qichensoft.com</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
