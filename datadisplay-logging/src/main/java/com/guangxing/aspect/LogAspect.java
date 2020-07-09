@@ -51,6 +51,7 @@ public class LogAspect {
 
     /**
      * 配置切入点
+     * @annotation：用于匹配当前执行方法持有指定注解的方法；
      */
     @Pointcut("@annotation(com.guangxing.annotation.Log)")
     public void logPointcut() {

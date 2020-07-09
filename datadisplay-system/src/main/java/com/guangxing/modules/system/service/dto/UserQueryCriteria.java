@@ -15,6 +15,7 @@
  */
 package com.guangxing.modules.system.service.dto;
 
+import com.guangxing.annotation.DataPermission;
 import com.guangxing.annotation.Query;
 
 import java.io.Serializable;
@@ -27,6 +28,8 @@ import java.util.Set;
  * @author Guangxing
  * @date 2018-11-23
  */
+//2020年7月0日新增@DataPermission(joinName = "dept", fieldName = "id")
+@DataPermission(joinName = "dept", fieldName = "id")
 public class UserQueryCriteria implements Serializable {
 
     @Query

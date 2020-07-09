@@ -70,15 +70,28 @@ public class UserServiceImpl implements UserService {
         //Page<User> page = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
         //QueryHelp::getPredicate：重写spec.toPredicate(root, query, builder)方法
         //findAll(@Nullable org.springframework.data.jpa.domain.Specification<T> spec,
-        //   org.springframework.data.domain.Pageable pageable)  -- Specification是一个接口
+        //org.springframework.data.domain.Pageable pageable)  -- Specification是一个接口
         Page<User> page = userRepository.findAll(QueryHelp::getPredicate,pageable);
         return PageUtil.toPage(page.map(userMapper::toDto));
+        /**
+         *  Page<User> page = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable)
+         *
+         *  可以写为：
+         *
+         *   Page<User> page = cfgPhysicalDbRepository.findAll(
+         *                 new Specification<CfgPhysicalDb>() {
+         *                     @Override
+         *                     public Predicate toPredicate(Root<CfgPhysicalDb> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+         *                         return QueryHelp.getPredicate(root,criteria,criteriaBuilder);
+         *                     }
+         *                 },pageable);
+         */
     }
 
     @Override
     @Cacheable
     public List<UserDto> queryAll(UserQueryCriteria criteria) {
-        List<User> users = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder));
+        List<User> users = userRepository.findAll((root,criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder));
         return userMapper.toDto(users);
     }
 
@@ -95,6 +108,9 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public UserDto create(User resources) {
         if(userRepository.findByUsername(resources.getUsername())!=null){
+            //抛出实体信息已存在异常
+            //通过@RestControllerAdvice来捕获异常（标注类：GlobalExceptionHandler）
+            //根据捕获异常信息来返回异常信息
             throw new EntityExistException(User.class,"username",resources.getUsername());
         }
         if(userRepository.findByEmail(resources.getEmail())!=null){

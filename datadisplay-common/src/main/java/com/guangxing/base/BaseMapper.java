@@ -24,7 +24,7 @@ import java.util.List;
 public interface BaseMapper<D, E> {
 
     /**
-     * DTO转Entity
+     * dto转entity
      * @param dto /
      * @return /
      */
