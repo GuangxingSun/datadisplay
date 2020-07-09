@@ -29,7 +29,7 @@ import java.util.Vector;
 /**
  * 执行shell命令
  *
- * @author: ZhangHouYing
+ * @author: guangxing
  * @date: 2019/8/10
  */
 public class ExecuteShellUtil {

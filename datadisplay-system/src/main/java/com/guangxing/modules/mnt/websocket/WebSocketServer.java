@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArraySet;
 /**
- * @author ZhangHouYing
+ * @author guangxing
  * @date 2019-08-10 15:46
  */
 @ServerEndpoint("/webSocket/{sid}")

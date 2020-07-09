@@ -23,7 +23,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
 /**
- * @author: ZhangHouYing
+ * @author: guangxing
  * @date: 2019-08-10 13:34
  */
 public class ZipUtils {

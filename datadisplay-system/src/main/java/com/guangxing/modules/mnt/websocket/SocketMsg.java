@@ -16,7 +16,7 @@
 package com.guangxing.modules.mnt.websocket;
 
 /**
- * @author ZhangHouYing
+ * @author guangxing
  * @date 2019-08-10 9:55
  */
 public class SocketMsg {

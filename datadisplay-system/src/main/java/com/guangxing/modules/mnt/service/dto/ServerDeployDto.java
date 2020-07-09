@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
-* @author zhanghouying
+* @author guangxing
 * @date 2019-08-24
 */
 public class ServerDeployDto extends BaseDTO implements Serializable {

@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
-* @author zhanghouying
+* @author guangxing
 * @date 2019-08-24
 */
 @Entity

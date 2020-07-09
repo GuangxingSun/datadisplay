@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 
 /**
-* @author zhanghouying
+* @author guangxing
 * @date 2019-08-24
 */
 public class DeployDto extends BaseDTO implements Serializable {

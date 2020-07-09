@@ -93,9 +93,10 @@ public class UserController {
     public ResponseEntity<Object> getUsers(UserQueryCriteria criteria, Pageable pageable){
         if (!ObjectUtils.isEmpty(criteria.getDeptId())) {
             criteria.getDeptIds().add(criteria.getDeptId());
+            //遍历查询当前用户所在部门的子级部门（getDeptChildren：递归遍历子级部门）
             criteria.getDeptIds().addAll(dataService.getDeptChildren(deptService.findByPid(criteria.getDeptId())));
         }
-        // 数据权限
+        // 数据权限(部门ID信息)
         List<Long> dataScopes = dataService.getDeptIds(userService.findById(SecurityUtils.getCurrentUserId()));
         // criteria.getDeptIds() 不为空并且数据权限不为空则取交集
         if (!CollectionUtils.isEmpty(criteria.getDeptIds()) && !CollectionUtils.isEmpty(dataScopes)){

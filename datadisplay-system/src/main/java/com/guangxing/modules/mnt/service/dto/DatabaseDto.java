@@ -20,7 +20,7 @@ import com.guangxing.base.BaseDTO;
 import java.io.Serializable;
 
 /**
-* @author zhanghouying
+* @author guangxing
 * @date 2019-08-24
 */
 public class DatabaseDto extends BaseDTO implements Serializable {

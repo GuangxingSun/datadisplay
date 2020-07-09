@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <!--大屏展示模块-->
+        <dependency>
+            <groupId>com.guangxing</groupId>
+            <artifactId>datadisplay-screen</artifactId>
+            <version>2.4</version>
+        </dependency>
         <!--    代码生成模块    -->
         <dependency>
             <groupId>com.guangxing</groupId>
