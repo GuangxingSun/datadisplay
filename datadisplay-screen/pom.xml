@@ -12,5 +12,14 @@
     <artifactId>datadisplay-screen</artifactId>
     <name>大屏展示页对接项目</name>
 
+    <dependencies>
+        <!--    tools 模块包含了 common 和 logging 模块    -->
+        <dependency>
+            <groupId>com.guangxing</groupId>
+            <artifactId>datadisplay-tools</artifactId>
+            <version>2.4</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
