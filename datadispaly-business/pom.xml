@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>datadisplay</artifactId>
+        <groupId>com.guangxing</groupId>
+        <version>2.4</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>datadispaly-business</artifactId>
+    <name>业务模块</name>
+
+    <dependencies>
+        <!--    tools 模块包含了 common 和 logging 模块    -->
+        <dependency>
+            <groupId>com.guangxing</groupId>
+            <artifactId>datadisplay-tools</artifactId>
+            <version>2.4</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
