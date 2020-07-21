@@ -16,6 +16,7 @@
 package com.guangxing.gen.service.dto;
 
 import lombok.Data;
+import java.sql.Timestamp;
 import java.util.List;
 import com.guangxing.annotation.Query;
 
@@ -23,8 +24,19 @@ import com.guangxing.annotation.Query;
 * @website https://docs.auauz.net
 * @description /
 * @author Guangxing
-* @date 2020-07-12
+* @date 2020-07-21
 **/
 @Data
 public class DemoTestQueryCriteria{
+
+    /** 模糊 */
+    @Query(type = Query.Type.INNER_LIKE)
+    private String name;
+
+    /** 不为空 */
+    @Query(type = Query.Type.NOT_NULL)
+    private Integer sex;
+    /** BETWEEN */
+    @Query(type = Query.Type.BETWEEN)
+    private List<Timestamp> createTime;
 }

@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 * @website https://docs.auauz.net
 * @description /
 * @author Guangxing
-* @date 2020-07-12
+* @date 2020-07-21
 **/
 public interface DemoTestRepository extends JpaRepository<DemoTest, Integer>, JpaSpecificationExecutor<DemoTest> {
 }

@@ -16,6 +16,7 @@
         <module>datadisplay-tools</module>
         <module>datadisplay-generator</module>
         <module>datadisplay-screen</module>
+        <module>datadispaly-business</module>
     </modules>
 
     <name>Data-Display后台管理系统</name>

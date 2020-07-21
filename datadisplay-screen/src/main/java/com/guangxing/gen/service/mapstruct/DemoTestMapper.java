@@ -25,7 +25,7 @@ import org.mapstruct.ReportingPolicy;
 * @website https://docs.auauz.net
 * @description /
 * @author Guangxing
-* @date 2020-07-12
+* @date 2020-07-21
 **/
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DemoTestMapper extends BaseMapper<DemoTestDto, DemoTest> {

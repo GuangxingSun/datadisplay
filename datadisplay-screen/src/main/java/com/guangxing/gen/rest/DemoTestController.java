@@ -15,12 +15,10 @@
 */
 package com.guangxing.gen.rest;
 
-
 import com.guangxing.annotation.Log;
 import com.guangxing.gen.domain.DemoTest;
 import com.guangxing.gen.service.DemoTestService;
 import com.guangxing.gen.service.dto.DemoTestQueryCriteria;
-
 import org.springframework.data.domain.Pageable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,9 +31,10 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+* @website https://docs.auauz.net
 * @description /
 * @author Guangxing
-* @date 2020-07-12
+* @date 2020-07-21
 **/
 @RestController
 @RequiredArgsConstructor

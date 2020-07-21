@@ -19,6 +19,8 @@ import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Timestamp;
@@ -28,13 +30,15 @@ import java.io.Serializable;
 * @website https://docs.auauz.net
 * @description /
 * @author Guangxing
-* @date 2020-07-12
+* @date 2020-07-21
 **/
 @Entity
 @Data
 @Table(name="demo_test")
 public class DemoTest implements Serializable {
 
+    //设置主键自增
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     @ApiModelProperty(value = "ID")
@@ -50,6 +54,7 @@ public class DemoTest implements Serializable {
     private Integer sex;
 
     @Column(name = "create_time")
+    @UpdateTimestamp
     @ApiModelProperty(value = "创建日期")
     private Timestamp createTime;
 
