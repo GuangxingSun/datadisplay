@@ -60,6 +60,11 @@ public class AsyncTaskExecutePool implements AsyncConfigurer {
         return executor;
     }
 
+
+    /**
+     * 异步任务中的异常处理
+     * @return
+     */
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         return (throwable, method, objects) -> {
