@@ -18,6 +18,7 @@ package com.guangxing.gen.service.impl;
 import com.guangxing.gen.domain.DemoTest;
 import com.guangxing.utils.ValidationUtil;
 import com.guangxing.utils.FileUtil;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import com.guangxing.gen.repository.DemoTestRepository;
 import com.guangxing.gen.service.DemoTestService;
@@ -44,13 +45,15 @@ import java.util.LinkedHashMap;
 * @author Guangxing
 * @date 2020-07-21
 **/
+@AllArgsConstructor
 @Service
-@RequiredArgsConstructor
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class DemoTestServiceImpl implements DemoTestService {
 
     private final DemoTestRepository demoTestRepository;
     private final DemoTestMapper demoTestMapper;
+
+
 
     @Override
     public Map<String,Object> queryAll(DemoTestQueryCriteria criteria, Pageable pageable){

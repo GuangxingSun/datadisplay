@@ -27,6 +27,7 @@ import com.guangxing.modules.system.service.dto.DeptQueryCriteria;
 import com.guangxing.utils.FileUtil;
 import com.guangxing.utils.QueryHelp;
 import com.guangxing.utils.ValidationUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -41,10 +42,11 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
+/**download
 * @author Guangxing
 * @date 2019-03-25
 */
+@AllArgsConstructor
 @Service
 @CacheConfig(cacheNames = "dept")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -53,10 +55,6 @@ public class DeptServiceImpl implements DeptService {
     private final DeptRepository deptRepository;
     private final DeptMapper deptMapper;
 
-    public DeptServiceImpl(DeptRepository deptRepository, DeptMapper deptMapper) {
-        this.deptRepository = deptRepository;
-        this.deptMapper = deptMapper;
-    }
 
     @Override
     @Cacheable

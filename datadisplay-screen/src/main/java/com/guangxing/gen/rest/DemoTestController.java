@@ -19,6 +19,7 @@ import com.guangxing.annotation.Log;
 import com.guangxing.gen.domain.DemoTest;
 import com.guangxing.gen.service.DemoTestService;
 import com.guangxing.gen.service.dto.DemoTestQueryCriteria;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -36,13 +37,14 @@ import javax.servlet.http.HttpServletResponse;
 * @author Guangxing
 * @date 2020-07-21
 **/
+@AllArgsConstructor
 @RestController
-@RequiredArgsConstructor
 @Api(tags = "测试生成管理")
 @RequestMapping("/api/demoTest")
 public class DemoTestController {
 
     private final DemoTestService demoTestService;
+
 
     @Log("导出数据")
     @ApiOperation("导出数据")
