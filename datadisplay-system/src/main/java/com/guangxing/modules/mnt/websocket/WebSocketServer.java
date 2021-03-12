@@ -34,6 +34,12 @@ import java.util.concurrent.CopyOnWriteArraySet;
 public class WebSocketServer {
 
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(WebSocketServer.class);
+
+    /**
+     * 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的
+     */
+    private static int onlineCount = 0;
+
     /**
 	 * concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
 	 */
@@ -61,6 +67,8 @@ public class WebSocketServer {
 			}
 		}
 		webSocketSet.add(this);
+		//在线人数加1
+		getOnlineCount();
 		this.sid=sid;
 	}
 
@@ -70,6 +78,8 @@ public class WebSocketServer {
 	@OnClose
 	public void onClose() {
 		webSocketSet.remove(this);
+		//在线人数减1
+		subOnlineCount();
 	}
 
 	/**
@@ -97,6 +107,10 @@ public class WebSocketServer {
 	 * 实现服务器主动推送
 	 */
 	private void sendMessage(String message) throws IOException {
+        /**
+         * getAsyncRemote是非阻塞式的，getBasicRemote是阻塞式的，
+         */
+        //this.session.getAsyncRemote().sendText(message);
 		this.session.getBasicRemote().sendText(message);
 	}
 
@@ -136,4 +150,15 @@ public class WebSocketServer {
 	public int hashCode() {
 		return Objects.hash(session, sid);
 	}
+
+
+	public static synchronized int getOnlineCount(){
+        return onlineCount;
+    }
+    public static synchronized void addOnlineCount(){
+	    WebSocketServer.onlineCount++;
+    }
+    public static synchronized void subOnlineCount(){
+	    WebSocketServer.onlineCount--;
+    }
 }
