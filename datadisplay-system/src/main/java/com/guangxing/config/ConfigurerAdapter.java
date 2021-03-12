@@ -26,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * WebMvcConfigurer
- *
+ *  https://blog.csdn.net/zhangpower1993/article/details/89016503
  * @author Guangxing
  * @date 2018-11-30
  */
@@ -53,9 +53,15 @@ public class ConfigurerAdapter implements WebMvcConfigurer {
         return new CorsFilter(source);
     }
 
+    /**
+     *静态资源处理
+     * addResoureHandler:指的是对外暴露的访问路径
+     * addResoureLocations:指的是内部文件放置的目录
+     * setCachePeriod:指定是缓存周期（秒）
+     **/
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        FileProperties.ElPath path = properties.getPath();
+        FileProperties.DDPath path = properties.getPath();
         String avatarUtl = "file:" + path.getAvatar().replace("\\","/");
         String pathUtl = "file:" + path.getPath().replace("\\","/");
         registry.addResourceHandler("/avatar/**").addResourceLocations(avatarUtl).setCachePeriod(0);
