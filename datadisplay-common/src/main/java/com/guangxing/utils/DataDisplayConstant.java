@@ -20,7 +20,7 @@ package com.guangxing.utils;
  * @author Guangxing
  * @date 2018-12-26
  */
-public class ElAdminConstant {
+public class DataDisplayConstant {
 
     /**
      * 用于IP定位转换

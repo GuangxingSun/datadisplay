@@ -15,7 +15,7 @@
  */
 package com.guangxing.config;
 
-import com.guangxing.utils.ElAdminConstant;
+import com.guangxing.utils.DataDisplayConstant;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,20 +32,20 @@ public class FileProperties {
     /** 头像大小限制 */
     private Long avatarMaxSize;
 
-    private ElPath mac;
+    private DDPath mac;
 
-    private ElPath linux;
+    private DDPath linux;
 
-    private ElPath windows;
+    private DDPath windows;
 
     public FileProperties() {
     }
 
-    public ElPath getPath(){
+    public DDPath getPath(){
         String os = System.getProperty("os.name");
-        if(os.toLowerCase().startsWith(ElAdminConstant.WIN)) {
+        if(os.toLowerCase().startsWith(DataDisplayConstant.WIN)) {
             return windows;
-        } else if(os.toLowerCase().startsWith(ElAdminConstant.MAC)){
+        } else if(os.toLowerCase().startsWith(DataDisplayConstant.MAC)){
             return mac;
         }
         return linux;
@@ -59,15 +59,15 @@ public class FileProperties {
         return this.avatarMaxSize;
     }
 
-    public ElPath getMac() {
+    public DDPath getMac() {
         return this.mac;
     }
 
-    public ElPath getLinux() {
+    public DDPath getLinux() {
         return this.linux;
     }
 
-    public ElPath getWindows() {
+    public DDPath getWindows() {
         return this.windows;
     }
 
@@ -79,15 +79,15 @@ public class FileProperties {
         this.avatarMaxSize = avatarMaxSize;
     }
 
-    public void setMac(ElPath mac) {
+    public void setMac(DDPath mac) {
         this.mac = mac;
     }
 
-    public void setLinux(ElPath linux) {
+    public void setLinux(DDPath linux) {
         this.linux = linux;
     }
 
-    public void setWindows(ElPath windows) {
+    public void setWindows(DDPath windows) {
         this.windows = windows;
     }
 
@@ -139,13 +139,13 @@ public class FileProperties {
         return "FileProperties(maxSize=" + this.getMaxSize() + ", avatarMaxSize=" + this.getAvatarMaxSize() + ", mac=" + this.getMac() + ", linux=" + this.getLinux() + ", windows=" + this.getWindows() + ")";
     }
 
-    public static class ElPath{
+    public static class DDPath{
 
         private String path;
 
         private String avatar;
 
-        public ElPath() {
+        public DDPath() {
         }
 
         public String getPath() {
@@ -166,8 +166,8 @@ public class FileProperties {
 
         public boolean equals(final Object o) {
             if (o == this) return true;
-            if (!(o instanceof ElPath)) return false;
-            final ElPath other = (ElPath) o;
+            if (!(o instanceof DDPath)) return false;
+            final DDPath other = (DDPath) o;
             if (!other.canEqual((Object) this)) return false;
             final Object this$path = this.getPath();
             final Object other$path = other.getPath();
@@ -179,7 +179,7 @@ public class FileProperties {
         }
 
         protected boolean canEqual(final Object other) {
-            return other instanceof ElPath;
+            return other instanceof DDPath;
         }
 
         public int hashCode() {
